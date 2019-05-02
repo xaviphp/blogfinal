@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylessheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+{% endblock %}
+{% block body %}
+    {{  dump(comments) }}
+    <div class="container">
+        <div class="titulo">
+            <h1>{{ post.title }}</h1>
+            {#<a class="btn btn-danger" href="{{ path('app_post_delete',{'id':post.id} ) }}">X</a>#}
+            <div><h3>{{ post.content | raw }}</h3></div>
+            <div><b>{{ post.author }}</b> creado el <b> {{ post.createdAt|date('Y-m-d') }}</b></div>
+            {% if app.user == post.user %}
+            <div>
+                <a class="btn btn-secondary" href="{{ path('app_post_edit',{'id':post.id} ) }}">Edit</a>
+            </div>
+            {% endif %}
+            {% for comment in comments %}
+                <div>
+                    <p><b>{{ comment.user.username }}</b> ha comentado : </p>
+                    <p>{{ comment.comment }}</p>
+                </div>
+            {% endfor %}
+            <div class="col-lg-6 box-form">
+                {{ form_start(form) }}
+                {{ form_row(form.comment) }}
+                {{ form_errors(form) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

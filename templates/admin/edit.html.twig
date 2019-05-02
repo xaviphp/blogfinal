@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block error %}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        body {
+        }
+        form                                                                                                                                                    {
+            background-color:#C9C9C9;
+            padding: 20px;
+        }
+        input{
+
+        }
+        label{
+
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="col-lg-10 box-form">
+            <h1>{{ title }} User</h1>
+            {% if is_granted("ROLE_ADMIN") %}
+                <div class="col-lg-8 box-form">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <input type="submit" class="btn btn-success" value="{{ title }}" onclick="return confirm('¿Esta seguro?')">
+                    {{ form_errors(form) }}
+                    {{ form_end(form) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

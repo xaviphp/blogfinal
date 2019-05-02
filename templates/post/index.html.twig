@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        .container{
+            background-color: powderblue;
+            margin-bottom: 30px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .titulo{
+            display: flex;
+            justify-content: space-between;
+            color: blueviolet;
+        }
+        .titulo a{
+            height: 40px;
+        }
+
+    </style>
+{% endblock %}
+{% block title %}Hello PostController!{% endblock %}
+{% block body %}
+    {{ dump(posts) }}
+    {% for post in posts %}
+        <div class="contenedor">
+
+            <div class="titulo">
+                <a href="{{ path('app_post_show',{'id':post.id} )}}"><h1>{{ post.title }}</h1></a>
+
+                <a class="btn btn-danger" href="{{ path('app_post_delete',{'id':post.id} )}}" onclick="return confirm('¿Esta seguro que desea eliminar este usuario?')">X</a></div>
+            <div><h3>{{ post.content | raw }}</h3></div>
+            <div><b>{{ post.author }}</b> creado el <b>{{ post.createdAt|date('Y-m-d') }}</b></div>
+            <div>
+                <a class="btn btn-secondary" href="{{ path('app_post_edit',{'id':post.id} )}}">Edit</a>
+
+
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

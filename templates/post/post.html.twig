@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/bootstrap-tagsinput.css") }}">
+    <style type="text/css" >
+        body {
+        }
+        form                                                                                                                                                    {
+            background-color:#C9C9C9;
+            padding: 20px;
+        }
+        input{
+
+        }
+        label{
+
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+    <div class="col-lg-6 box-form">
+    <h1>New post</h1>
+    {{form_start(form)}}
+    {{ form_row(form.title) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.created_at) }}
+    {{ form_row(form.tags) }}
+    {{ form_errors(form) }}
+    {{ form_end(form) }}
+
+    </div>
+{%endblock%}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset("js/bootstrap-tagsinput.js") }}"></script>
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+            selector:'#post_content'
+        });
+    </script>
+{% endblock %}

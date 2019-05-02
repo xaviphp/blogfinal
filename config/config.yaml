@@ -1,0 +1,9 @@
+# app/config/config.yml
+easy_admin:
+  entities:
+    Product:
+      # ...
+      form:
+        fields:
+        # ...
+        - { property: 'description', type: 'fos_ckeditor' }

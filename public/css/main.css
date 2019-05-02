@@ -1,0 +1,52 @@
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+main > .container {
+    padding: 60px 15px 0;
+}
+
+.footer {
+    background-color: #f5f5f5;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+header{
+    margin-bottom: 70px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+#user_button{
+    align-self: flex-end;
+    float: right;
+    background-color: deepskyblue;
+}
+
+#posts_button {
+    background-color: yellow;
+}
+
+#postss_button {
+    background-color: lawngreen;
+}
+
+.contenedor {
+
+    background-color: #f5aed1;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 10px;
+
+}
